@@ -2,29 +2,6 @@
 
 The Factory Design Pattern is a Creational Design Pattern that provides an interface for creating objects but allows subclasses/factories to decide which class to instantiate.
 It abstracts the instantiation logic, making the system more flexible and easier to extend.
-
-🔹 UML Diagram
-          +--------------------+
-          |    Notification    | <---- Product (Interface)
-          +--------------------+
-                 ^   ^   ^
-                 |   |   |
-   +-----------------+    |
-   |                      |
-+----------+       +---------------+      +-----------------+
-|   Email  |       |      SMS      |      |      Push       |
-|Notification       |Notification   |      |Notification     |
-+----------+       +---------------+      +-----------------+
-      ^                        ^
-      |                        |
-      +-----------+------------+
-                  |
-      +----------------------------+
-      |     NotificationFactory    | <-- Factory Class
-      +----------------------------+
-      | + create(type, cfg):Notification
-      +----------------------------+
-
 🔹 Example (Simplified Java Code)
 Notification email = NotificationFactory.create(NotificationType.EMAIL, cfg);
 Notification sms   = NotificationFactory.create(NotificationType.SMS, cfg);
@@ -54,33 +31,6 @@ Database drivers (MySQL, PostgreSQL, Oracle)
 
 The Flyweight Design Pattern is a Structural Design Pattern used to minimize memory usage by sharing objects.
 It is especially useful when you need to create a large number of similar objects that share common state (intrinsic) while varying in external state (extrinsic).
-
-🔹 UML Diagram
-                 +-----------------+
-                 |   Flyweight     | <--- Interface
-                 +-----------------+
-                          ^
-                          |
-          +----------------+---------------+
-          |                                |
-+----------------+               +-----------------+
-| ConcreteFlyweight |            | UnsharedFlyweight|
-+----------------+               +-----------------+
-| intrinsicState |               | extrinsicState  |
-+----------------+               +-----------------+
-
-+----------------------+
-| FlyweightFactory     |
-+----------------------+
-| pool : Map           |
-| getFlyweight(key)    |
-+----------------------+
-
-+----------------------+
-| Client               |
-+----------------------+
-| uses extrinsic state |
-+----------------------+
 
 🔹 Example (Simplified Java Code)
 // TreeType acts as the Flyweight (shared)
